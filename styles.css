@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;  /* Set background to black */
+    color: #fff;  /* Default text color to white */
+    flex-direction: column;
+    position: relative;  /* Needed to position the high score in the top-right corner */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: blueviolet;  /* White color for the heading */
+}
+
+#footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 14px;
+    color: blanchedalmond;
+  }
+
+.game-container {
+    text-align: center;
+    background-color: #333;  /* Dark background for the game container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #444;  /* Dark background for cards */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+    color: transparent;  /* Hidden text color when not flipped */
+    background-color: #555;  /* Default background for cards */
+}
+
+.card .card-text {
+    visibility: hidden;
+    font-size: 2rem;
+    color: yellow;  /* Text color set to yellow */
+}
+
+.card.flipped .card-text {
+    visibility: visible;  /* Show text when flipped */
+}
+
+.card.matched {
+    background-color: #4caf50;  /* Matched cards will have a green background */
+    cursor: not-allowed;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color:black;  /* Change button text to yellow */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:disabled {
+    background-color: #cccccc;
+}
+
+.score-container {
+    margin-top: 10px;
+    color: darkgoldenrod;  /* Change score text to yellow */
+}
+
+/* Position the high score at the top-right corner */
+.high-score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: yellow;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.result-message {
+    margin-top: 20px;
+    font-size: 20px;
+    color: yellow;
+    font-weight: bold;
+}
