@@ -13,7 +13,7 @@ let gameStarted = false;
 const cardValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
 // Get the stored high score from localStorage (if any)
-let highScore = localStorage.getItem('highScore') ? localStorage.getItem('highScore') : Infinity;
+let highScore = localStorage.getItem('highScore') ? localStorage.getItem('highScore') : 0;
 const highScoreElem = document.createElement('div');
 highScoreElem.classList.add('high-score');
 highScoreElem.textContent = `High Score: ${highScore}`;
@@ -118,7 +118,11 @@ function showResult() {
     document.body.appendChild(resultMessage);
 
     // Check if it's a new high score
-    if (moveCount < highScore) {
+    if(highScore=0){
+        highScore = moveCount;
+        localStorage.setItem('highScore', highScore); // Save the new high score
+        highScoreElem.textContent = `New High Score: ${highScore}`;
+    }else if (moveCount < highScore) {
         highScore = moveCount;
         localStorage.setItem('highScore', highScore); // Save the new high score
         highScoreElem.textContent = `New High Score: ${highScore}`;
